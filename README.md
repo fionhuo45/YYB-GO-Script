@@ -11,7 +11,7 @@ YYB Go 适配版。
 ## 青龙订阅
 
 ```
-ql repo https://github.com/SuperNaiBA/YYB-GO-Script.git "" "SendNotify.py" "main" ""
+ql repo https://github.com/fionhuo45/YYB-GO-Script.git "" "SendNotify.py" "main" ""
 ```
 
 ## 京东 Cookie 脚本
@@ -53,16 +53,43 @@ export QL_CLIENT_SECRET='你的client_secret'
 ### 青龙任务
 
 ```
-task SuperNaiBA_YYB-GO-Script/JDCode.py
-task SuperNaiBA_YYB-GO-Script/JDCodeLocal.py
+task fionhuo45_YYB-GO-Script/JDCode.py
+task fionhuo45_YYB-GO-Script/JDCodeLocal.py
 ```
 
 cron 建议 `0 */2 * * *`。两个脚本二选一即可，不要同时跑。
 
+## YONEX 小程序
+
+YONEX v29 的登录续期、商品查询、购物车、待支付订单和登录态 API
+位于 [`yonex/`](yonex/)：
+
+| 入口 | 用途 |
+|------|------|
+| `yonex/yonex_ql_login.py` | 通过 YYB-Go 刷新会员登录态并原子保存 Session |
+| `yonex/scripts/python/yonex_order.py` | 搜索、加载商品、购物车、结算预览和显式创建待支付订单 |
+| `yonex/scripts/python/yonex_session_api.py` | 提供默认监听 5802 的独立 `/yonex` 登录态 sidecar |
+| `yonex/deploy/universal_session_api/` | 已部署在 5800 的 Universal Session API YONEX 适配器及测试 |
+
+安装及离线验证：
+
+YONEX 需要 Python 3.10 或更高版本。
+
+```bash
+cd yonex
+pip3 install -r requirements.txt
+python3 -m unittest discover -s tests -v
+python3 scripts/python/yonex_order.py --help
+```
+
+青龙登录续期入口必须保留文件名 `yonex_ql_login.py`，Session 默认写入
+`/ql/data/config/yonex-sessions`。完整配置、API 路径和下单确认门禁见
+[`yonex/docs/yonex-qinglong.md`](yonex/docs/yonex-qinglong.md)。
+
 ## 注意事项
 
-- 不要带 `http://` 前缀
-- 不要用容器名（如 `yyb-go`），用 IP
+- 旧版/JD 脚本继续按各自说明配置不带协议的 YYB 地址。
+- YONEX 的 `YYB_SERVER` 必须带 `http://` 或 `https://`；同一 Docker 网络内可使用能正确解析的容器名，例如 `http://yyb-go:8000@账号ref`。
 - 脚本不会同时执行，青龙定时任务需手动错开 cron
 
 ## 免责声明

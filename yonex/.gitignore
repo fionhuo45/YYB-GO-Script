@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.env
+.env.*
+captures/
+sessions/
+logs/
+temp/
+artifacts/
+yonex-*.json
+*.pending
+*.tmp
+*_api_token.txt

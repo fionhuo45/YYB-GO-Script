@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+export TOPPS_RENEWAL_ENTRY=/ql/data/scripts/topps/scripts/python/topps_ql_login.py
+export WDNGM_RENEWAL_ENTRY=/ql/data/scripts/wdngm/tools/python/wdngm_ql_login.py
+export LN_RENEWAL_ENTRY=/ql/data/scripts/ln/scripts/python/ln_ql_login.py
+export YONEX_RENEWAL_ENTRY=/ql/data/scripts/yonex/yonex_ql_login.py
+
+nohup python3 /ql/data/scripts/topps/scripts/python/session_api_server_generic.py --no-auth \
+  >> /ql/data/log/session_api.log 2>&1 &

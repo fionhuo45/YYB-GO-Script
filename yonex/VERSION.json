@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "project": "yonex",
+  "version_id": "mp-v29__proto-v29",
+  "snapshot_id": "20260831T094816+0800-project-migration",
+  "captured_at": "2026-08-31T09:48:16+08:00",
+  "source": "project-migration",
+  "version": {
+    "mini_program": "v29",
+    "protocol": "v29",
+    "referer": "v29"
+  },
+  "evidence": {
+    "app_id": "wx1656f93aeb347dbc",
+    "referer_page": "/29/page-frame.html",
+    "source_package": "yonex-wx1656f93aeb347dbc-v29.wxapkg",
+    "source_package_sha256": "efca0e79f54c3c3847d43c49570d492d5c8f6fa3ae2f6d0efd1ec65f3edf4e88",
+    "remote_login_sha256": "54f70d69b4010bc3b093fab7079772219e51cb440189eb7c9828e9f8f594915f",
+    "remote_client_sha256": "d5c895c1a012d0786fdd0019c87b1b2e1a5cedf2997804355a60483f40e4a52e"
+  },
+  "changes": [
+    "将已验证的 YONEX v29 登录、订单和 session 消费脚本纳入 canonical 版本快照",
+    "登录入口及真实运行依赖保持原字节与相邻布局，远端路径契约不变"
+  ],
+  "entrypoints": {
+    "login": "yonex_ql_login.py",
+    "order": "scripts/python/yonex_order.py",
+    "session_api": "scripts/python/yonex_session_api.py"
+  }
+}
