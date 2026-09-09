@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "project": "topps",
+  "version_id": "mp-v18__login-v18__order-v12",
+  "snapshot_id": "20260909T003850+0800-topps-v18-login",
+  "captured_at": "2026-09-09T00:38:50+08:00",
+  "source": "topps-v18-static-and-qinglong-live",
+  "version": {
+    "mini_program": "v18",
+    "login_protocol": "v18",
+    "order_protocol": "v12-compatible",
+    "wire": "v1.0",
+    "referer": "v18"
+  },
+  "evidence": {
+    "referer_page": "/18/page-frame.html",
+    "v18_login_source": "D:/AIReverse/project/weixin/topps/versions/v18/analysis/unpacked/raw-main/app-service.js",
+    "pending_cancel_endpoint": "/interface/account/revokeCancelApply",
+    "order_crypto_role": "best-effort cache; not a business-login commit gate",
+    "order_script": "orders/topps_v12_cached_order.py"
+  },
+  "entrypoints": {
+    "login": "jobs/topps_ql_login.py",
+    "verify": "jobs/verify_topps_flow.py",
+    "order": "orders/topps_v12_cached_order.py",
+    "session_api": "services/session_api_server.py"
+  }
+}

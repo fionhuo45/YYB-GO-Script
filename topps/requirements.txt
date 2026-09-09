@@ -1,0 +1,4 @@
+curl_cffi>=0.13,<0.14
+pycryptodome
+opencv-python-headless
+numpy

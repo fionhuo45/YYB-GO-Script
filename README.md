@@ -86,6 +86,20 @@ python3 scripts/python/yonex_order.py --help
 `/ql/data/config/yonex-sessions`。完整配置、API 路径和下单确认门禁见
 [`yonex/docs/yonex-qinglong.md`](yonex/docs/yonex-qinglong.md)。
 
+## TOPPS 小程序
+
+TOPPS v18 登录续期、流程验证、订单和登录态 API 位于 [`topps/`](topps/)：
+
+| 入口 | 用途 |
+|------|------|
+| `topps/jobs/topps_ql_login.py` | 通过 YYB-Go 刷新 TOPPS 业务登录态 |
+| `topps/jobs/verify_topps_flow.py` | 验证当前登录和会员流程 |
+| `topps/orders/topps_v12_cached_order.py` | 使用兼容 v12 的订单协议 |
+| `topps/services/session_api_server.py` | 提供 TOPPS 登录态 API |
+
+当前所有 TOPPS 请求统一由 `topps/lib/topps_client.py` 提供请求头，Referer 使用
+TOPPS 小程序 v18：`https://servicewechat.com/wx7f5b9b4a432faaf0/18/page-frame.html`。
+
 ## 注意事项
 
 - 旧版/JD 脚本继续按各自说明配置不带协议的 YYB 地址。
